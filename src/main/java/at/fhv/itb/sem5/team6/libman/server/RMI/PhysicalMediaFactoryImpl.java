@@ -5,7 +5,7 @@ import at.fhv.itb.sem5.team6.libman.interfaces.IPhysicalMediaFactory;
 
 import java.rmi.RemoteException;
 
-public class PhsicalMediaFactoryImpl implements IPhysicalMediaFactory {
+public class PhysicalMediaFactoryImpl implements IPhysicalMediaFactory {
 
     @Override
     public IPhysicalMedia create() throws RemoteException{
