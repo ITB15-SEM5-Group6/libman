@@ -1,8 +1,8 @@
 package at.fhv.itb.sem5.team6.libman.server;
 
-import at.fhv.itb.sem5.team6.libman.interfaces.IMediaSearchFactory;
-import at.fhv.itb.sem5.team6.libman.server.RMI.MediaSearchFactoryImpl;
-import at.fhv.itb.sem5.team6.libman.server.RMI.RMIServer;
+import at.fhv.itb.sem5.team6.libman.server.RMI.LibraryFactoryImpl;
+import at.fhv.itb.sem5.team6.libman.server.application.LibraryController;
+import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibraryFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,17 +16,22 @@ public class Application {
 	}
 
 	@Bean
-	IMediaSearchFactory getSearchServiceFactory(){
-		return new MediaSearchFactoryImpl();
+	LibraryController getLibraryController() {
+		return new LibraryController();
 	}
 
 	@Bean
-	RmiServiceExporter exporter(IMediaSearchFactory implementation){
-		Class<IMediaSearchFactory> serviceInterface = IMediaSearchFactory.class;
+	ILibraryFactory getLibraryServiceFactory(LibraryController controller) {
+		return new LibraryFactoryImpl(controller);
+	}
+
+	@Bean
+	RmiServiceExporter exporter(ILibraryFactory implementation) {
+		Class<ILibraryFactory> serviceInterface = ILibraryFactory.class;
 		RmiServiceExporter exporter = new RmiServiceExporter();
 		exporter.setServiceInterface(serviceInterface);
 		exporter.setService(implementation);
-		exporter.setServiceName("MediaSearchFactory");
+		exporter.setServiceName("LibraryFactory");
 		exporter.setRegistryPort(1099);
 		return exporter;
 	}
