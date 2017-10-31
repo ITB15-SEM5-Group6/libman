@@ -1,8 +1,8 @@
 package at.fhv.itb.sem5.team6.libman.interfaces;
 
-import at.fhv.itb.sem5.team6.libman.model.Customer;
-import at.fhv.itb.sem5.team6.libman.model.Media;
-import at.fhv.itb.sem5.team6.libman.model.Reservation;
+import at.fhv.itb.sem5.team6.libman.server.model.Customer;
+import at.fhv.itb.sem5.team6.libman.server.model.Media;
+import at.fhv.itb.sem5.team6.libman.server.model.Reservation;
 
 import javax.validation.constraints.NotNull;
 import java.rmi.Remote;

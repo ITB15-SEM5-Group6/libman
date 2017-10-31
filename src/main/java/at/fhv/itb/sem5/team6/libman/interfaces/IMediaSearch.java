@@ -1,8 +1,8 @@
 package at.fhv.itb.sem5.team6.libman.interfaces;
 
-import at.fhv.itb.sem5.team6.libman.model.Availability;
-import at.fhv.itb.sem5.team6.libman.model.Media;
-import at.fhv.itb.sem5.team6.libman.model.MediaType;
+import at.fhv.itb.sem5.team6.libman.server.model.Availability;
+import at.fhv.itb.sem5.team6.libman.server.model.Media;
+import at.fhv.itb.sem5.team6.libman.server.model.MediaType;
 
 import java.io.Serializable;
 import java.rmi.Remote;

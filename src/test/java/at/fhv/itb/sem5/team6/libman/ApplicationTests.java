@@ -1,11 +1,11 @@
 package at.fhv.itb.sem5.team6.libman;
 
-import at.fhv.itb.sem5.team6.libman.model.Customer;
-import at.fhv.itb.sem5.team6.libman.model.Media;
-import at.fhv.itb.sem5.team6.libman.model.Reservation;
-import at.fhv.itb.sem5.team6.libman.persistence.CustomerRepository;
-import at.fhv.itb.sem5.team6.libman.persistence.MediaRepository;
-import at.fhv.itb.sem5.team6.libman.persistence.ReservationRepository;
+import at.fhv.itb.sem5.team6.libman.server.model.Customer;
+import at.fhv.itb.sem5.team6.libman.server.model.Media;
+import at.fhv.itb.sem5.team6.libman.server.model.Reservation;
+import at.fhv.itb.sem5.team6.libman.server.persistence.CustomerRepository;
+import at.fhv.itb.sem5.team6.libman.server.persistence.MediaRepository;
+import at.fhv.itb.sem5.team6.libman.server.persistence.ReservationRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
