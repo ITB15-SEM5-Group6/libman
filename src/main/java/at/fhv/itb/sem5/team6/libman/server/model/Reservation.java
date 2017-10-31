@@ -1,37 +1,25 @@
 package at.fhv.itb.sem5.team6.libman.server.model;
 
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+//Lombok annotations to reduce boilerplate (lombok plugin has to be installed in IDE)
+@Data // applies lombok-annotations
+@Getter // enables getters
+@Setter // enables setters
+@AllArgsConstructor // creates a constructor accepting all args in the order the attributes are defined
+@NoArgsConstructor // creates an empty constructor
+
+//MongoDb annnotation
 @Document
 public class Reservation {
 
     @Id
     private String id;
+    @DBRef //MongoDb uses this object as a reference
     private Media info;
+    @DBRef //MongoDb uses this object as a reference
     private Customer customer;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Media getInfo() {
-        return info;
-    }
-
-    public void setInfo(Media info) {
-        this.info = info;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 }
