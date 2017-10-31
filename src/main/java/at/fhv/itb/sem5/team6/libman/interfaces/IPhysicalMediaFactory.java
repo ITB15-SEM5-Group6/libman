@@ -1,4 +1,8 @@
 package at.fhv.itb.sem5.team6.libman.interfaces;
 
-public interface IPhysicalMediaFactory {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface IPhysicalMediaFactory extends Remote {
+    public IPhysicalMedia create() throws RemoteException;
 }
