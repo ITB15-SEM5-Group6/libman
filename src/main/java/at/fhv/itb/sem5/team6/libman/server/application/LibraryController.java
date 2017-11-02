@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class LibraryController implements IConvertable {
+public class LibraryController implements Convertible {
 
     @Autowired
     private CustomerRepository customerRepository;

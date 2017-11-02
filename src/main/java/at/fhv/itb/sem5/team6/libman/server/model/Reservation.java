@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 //MongoDb annnotation
 @Document
-public class Reservation implements MutableReservation, Identifyable<String> {
+public class Reservation implements MutableReservation, Identifiable<String> {
     @Id
     private String id;
     @DBRef //MongoDb uses this object as a reference

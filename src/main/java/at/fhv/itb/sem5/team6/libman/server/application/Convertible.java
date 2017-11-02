@@ -11,19 +11,19 @@ import javax.validation.constraints.NotNull;
  * MutableMedia m = new Media();
  * Media o = new Media();
  * <p>
- * // immutable converstions
+ * // immutable conversions
  * Media oi = CastDown(i);
  * MutableMedia mi = CastDown(i);
  * <p>
- * // mutable converstions
+ * // mutable conversions
  * Media om = CastDown(m);
  * ImmutableMedia im = CastUp(m);
  * <p>
- * // model converstions
+ * // model conversions
  * ImmutableMedia io = CastUp(o);
  * MutableMedia mo = CastUp(o);
  */
-public interface IConvertable {
+public interface Convertible {
     default <A extends B, B> B CastUp(@NotNull A item) {
         return item;
     }

@@ -7,18 +7,23 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@Getter
-@Setter
+//Lombok annotations to reduce boilerplate (lombok plugin has to be installed in IDE)
+@Data // applies lombok-annotations
+@Getter // enables getters
+@Setter // enables setters
 
+//MongoDb annnotation
 @Document
-public class Lending implements MutableLending, Identifyable<String> {
+public class Lending implements MutableLending, Identifiable<String> {
 
     @Id
     private String id;
+    @DBRef //MongoDb uses this object as a reference
     private PhysicalMedia physicalMedia;
+    @DBRef //MongoDb uses this object as a reference
     private Customer customer;
 
     @Override
