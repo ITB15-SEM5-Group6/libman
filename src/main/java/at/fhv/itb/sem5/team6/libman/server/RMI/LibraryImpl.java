@@ -1,10 +1,11 @@
 package at.fhv.itb.sem5.team6.libman.server.RMI;
 
 import at.fhv.itb.sem5.team6.libman.server.application.LibraryController;
-import at.fhv.itb.sem5.team6.libman.server.model.*;
+import at.fhv.itb.sem5.team6.libman.server.model.Availability;
+import at.fhv.itb.sem5.team6.libman.server.model.MediaType;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
 import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibrary;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
@@ -29,63 +30,34 @@ public class LibraryImpl extends UnicastRemoteObject implements ILibrary {
         this.libraryController = libraryController;
     }
 
-    @Override
-    public void hello() throws RemoteException {
-        System.out.println("hello");
-    }
+// Search
 
     @Override
-    public List<Media> findAllMedia() throws RemoteException {
+    public List<ImmutableMedia> findAllMedia() throws RemoteException {
         return libraryController.findAllMedia();
     }
 
     @Override
-    public Reservation reserveMedia(Media media, Customer customer) throws RemoteException {
-        return null;
+    public List<ImmutableMedia> findAllMedia(String text) throws RemoteException {
+        return libraryController.findAllMedia(text);
     }
 
     @Override
-    public void cancelReservation(Reservation reservation) throws RemoteException {
-
+    public List<ImmutableMedia> findAllMedia(MediaType type) throws RemoteException {
+        return libraryController.findAllMedia(type);
     }
 
     @Override
-    public Media findOneMedia(Serializable id) throws RemoteException {
-        return null;
+    public List<ImmutableMedia> findAllMedia(Availability availability) throws RemoteException {
+        return libraryController.findAllMedia(availability);
     }
 
     @Override
-    public List<Media> findAllMedia(String text) throws RemoteException {
-        return null;
+    public List<ImmutableMedia> findAllMedia(String text, MediaType type, Availability availability) throws RemoteException {
+        return libraryController.findAllMedia(text, type, availability);
     }
 
-    @Override
-    public List<Media> findAllMedia(MediaType type) throws RemoteException {
-        return null;
-    }
+// Reservation
 
-    @Override
-    public List<Media> findAllMedia(Availability availability) throws RemoteException {
-        return null;
-    }
-
-    @Override
-    public List<Media> findAllMedia(String text, MediaType type, Availability availability) throws RemoteException {
-        return null;
-    }
-
-    @Override
-    public Lending lendPhysicalMedia(PhysicalMedia physicalMedia, Customer customer) throws RemoteException {
-        return null;
-    }
-
-    @Override
-    public void returnPhysicalMedia(Lending lending) throws RemoteException {
-
-    }
-
-    @Override
-    public void extendLending(Lending lending) throws RemoteException {
-
-    }
+// Lending
 }
