@@ -1,6 +1,11 @@
 package at.fhv.itb.sem5.team6.libman.server.model;
 
-import lombok.*;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableCustomer;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.mutable.MutableReservation;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,17 +14,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data // applies lombok-annotations
 @Getter // enables getters
 @Setter // enables setters
-@AllArgsConstructor // creates a constructor accepting all args in the order the attributes are defined
-@NoArgsConstructor // creates an empty constructor
 
 //MongoDb annnotation
 @Document
-public class Reservation {
-
+public class Reservation implements MutableReservation, Identifyable<String> {
     @Id
     private String id;
     @DBRef //MongoDb uses this object as a reference
-    private Media info;
+    private Media media;
     @DBRef //MongoDb uses this object as a reference
     private Customer customer;
+
+    @Override
+    public void setMedia(ImmutableMedia media) {
+        this.media = (Media) media;
+    }
+
+    @Override
+    public void setCustomer(ImmutableCustomer customer) {
+        this.customer = (Customer) customer;
+    }
 }

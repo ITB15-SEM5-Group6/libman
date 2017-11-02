@@ -1,9 +1,6 @@
 package at.fhv.itb.sem5.team6.libman.client;
 
-import at.fhv.itb.sem5.team6.libman.interfaces.IMediaReservation;
-import at.fhv.itb.sem5.team6.libman.interfaces.IMediaReservationFactory;
-import at.fhv.itb.sem5.team6.libman.server.model.Customer;
-import at.fhv.itb.sem5.team6.libman.server.model.Media;
+import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibraryFactory;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -17,13 +14,8 @@ public class ClientTest {
 
         try {
             Registry registry = LocateRegistry.getRegistry(host,port);
-
-
-            IMediaReservationFactory stub = (IMediaReservationFactory) registry.lookup("MediaReservationFactory");
-
-            IMediaReservation mediaReservation = stub.create();
-
-            mediaReservation.reserve(new Media(),new Customer());
+            ILibraryFactory stub = (ILibraryFactory) registry.lookup("LibraryFactory");
+            stub.create().findAllMedia().forEach(System.out::println);
 
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());

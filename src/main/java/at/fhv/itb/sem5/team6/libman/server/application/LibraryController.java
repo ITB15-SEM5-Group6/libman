@@ -1,22 +1,23 @@
 package at.fhv.itb.sem5.team6.libman.server.application;
 
+import at.fhv.itb.sem5.team6.libman.server.model.Media;
 import at.fhv.itb.sem5.team6.libman.server.persistence.CustomerRepository;
 import at.fhv.itb.sem5.team6.libman.server.persistence.MediaRepository;
 import at.fhv.itb.sem5.team6.libman.server.persistence.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class ReservationRestController {
+import java.util.List;
 
-    @Autowired
-    private ReservationRepository reservationRepository;
+public class LibraryController implements IConvertable {
 
     @Autowired
     private CustomerRepository customerRepository;
-
     @Autowired
     private MediaRepository mediaRepository;
+    @Autowired
+    private ReservationRepository reservationRepository;
 
-
+    public List<Media> findAllMedia() {
+        return mediaRepository.findAll();
+    }
 }
