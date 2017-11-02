@@ -1,7 +1,34 @@
 package at.fhv.itb.sem5.team6.libman.server.application;
 
-public interface IConvertable<Model, DTO> {
-    Model convertDTO(DTO item);
+import javax.validation.constraints.NotNull;
 
-    DTO convertModel(Model item);
+/**
+ * supports up- and down-casts between model hierarchies
+ * <p>
+ * EXAMPLE USAGE:
+ * // data
+ * ImmutableMedia i = new Media();
+ * MutableMedia m = new Media();
+ * Media o = new Media();
+ * <p>
+ * // immutable converstions
+ * Media oi = CastDown(i);
+ * MutableMedia mi = CastDown(i);
+ * <p>
+ * // mutable converstions
+ * Media om = CastDown(m);
+ * ImmutableMedia im = CastUp(m);
+ * <p>
+ * // model converstions
+ * ImmutableMedia io = CastUp(o);
+ * MutableMedia mo = CastUp(o);
+ */
+public interface IConvertable {
+    default <A extends B, B> B CastUp(@NotNull A item) {
+        return item;
+    }
+
+    default <A extends B, B> A CastDown(@NotNull B item) {
+        return (A) item;
+    }
 }
