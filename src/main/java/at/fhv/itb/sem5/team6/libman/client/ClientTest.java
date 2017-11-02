@@ -1,28 +1,22 @@
 package at.fhv.itb.sem5.team6.libman.client;
 
-import at.fhv.itb.sem5.team6.libman.client.presentation.ClientGUI;
-import javafx.application.Application;
-import javafx.stage.Stage;
+import at.fhv.itb.sem5.team6.libman.interfaces.IMediaReservation;
+import at.fhv.itb.sem5.team6.libman.interfaces.IMediaReservationFactory;
+import at.fhv.itb.sem5.team6.libman.server.model.Customer;
+import at.fhv.itb.sem5.team6.libman.server.model.Media;
 
-import java.util.Locale;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
-public class ClientTest extends Application {
+/**
+ * Created by Christina on 02.11.2017.
+ */
+public class ClientTest {
 
     static String host = "localhost";
     static int port = 1099;
 
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Locale.setDefault(Locale.UK);
-
-        ClientGUI gui = new ClientGUI();
-        gui.start(primaryStage);
-    }
-
     public static void main(String[] args) {
-        /*
-
         try {
             Registry registry = LocateRegistry.getRegistry(host,port);
 
@@ -37,11 +31,7 @@ public class ClientTest extends Application {
             System.err.println("Client exception: " + e.toString());
             e.printStackTrace();
         }
-        */
-        launch(args);
+
     }
 
-
 }
-
-
