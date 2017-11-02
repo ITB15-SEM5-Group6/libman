@@ -1,6 +1,5 @@
 package at.fhv.itb.sem5.team6.libman.client.presentation;
 
-import at.fhv.itb.sem5.team6.libman.client.ClientTest;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,33 +11,38 @@ import java.io.IOException;
  */
 public class ClientGUI {
 
+    public static Scene scene;
+    public static Stage primaryStage;
+
     public void start(Stage primaryStage) throws Exception {
-        loadGUI(primaryStage);
+        showFirstLogin(primaryStage);
     }
 
-    private static void loadGUI(Stage primaryStage) {
+    public void showFirstLogin(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("LIBMAN Login");
 
-        try {
-            primaryStage = new Stage();
+        scene = new Scene(FXMLLoader.load(ClientGUI.class.getResource("Login.fxml")));
+        primaryStage.setScene(scene);
+        //primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
+        primaryStage.show();
+        //checkLogin(primaryStage);
+        this.primaryStage = primaryStage;
+    }
+
+    public void loadGUI(Stage primaryStage) throws IOException{
+
             primaryStage.setTitle("LIBMAN");
             //primaryStage.setResizable(false);
             primaryStage.setMaximized(true);
+
 
             primaryStage.setOnCloseRequest(t -> {
                 //closePlanchester();
             });
 
-            Scene scene = new Scene(FXMLLoader.load(ClientGUI.class.getResource("MainFrame.fxml")));
-
-
-            //String css = url.toExternalForm();
-            //scene.getStylesheets().add(css);
-
-            primaryStage.setScene(scene);
+            primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("MainFrame.fxml"))));
             // primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
             primaryStage.show();
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+
     }
 }
