@@ -18,22 +18,10 @@ import java.util.stream.Collectors;
 @SpringBootTest
 public class ApplicationTests {
 
-    @Autowired
-    private ReservationRepository reservations;
-
-    @Autowired
-    private CustomerRepository customers;
-
-    @Autowired
-    private MediaRepository medias;
 
 	@Test
 	public void contextLoads() {
-        Customer customer = customers.findByLastName("Dengg").get(0);
-        Media media = medias.findAll().stream().filter(media1 -> media1.getTitle().contains("Feuerkelch")).collect(Collectors.toList()).get(0);
 
-        Reservation reservation = new Reservation();
-        reservations.save(reservation);
     }
 
 }

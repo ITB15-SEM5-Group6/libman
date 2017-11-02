@@ -1,6 +1,7 @@
 package at.fhv.itb.sem5.team6.libman.client.presentation;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -20,13 +21,12 @@ public class ClientGUI {
 
     public void showFirstLogin(Stage primaryStage) throws Exception {
         primaryStage.setTitle("LIBMAN Login");
-        //System.out.println( getClass().getResource(getClass().getSimpleName() + ".class") );
 
-        scene = new Scene(FXMLLoader.load(ClientGUI.class.getResource("/views/Login.fxml")));
+        FXMLLoader loader = new FXMLLoader(ClientGUI.class.getResource("/views/Login.fxml"));
+        Parent parent = loader.load();
+        scene = new Scene(parent);
         primaryStage.setScene(scene);
-        //primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
         primaryStage.show();
-        //checkLogin(primaryStage);
         this.primaryStage = primaryStage;
     }
 
