@@ -1,23 +1,10 @@
 package at.fhv.itb.sem5.team6.libman.client;
 
 import at.fhv.itb.sem5.team6.libman.client.presentation.ClientGUI;
-import at.fhv.itb.sem5.team6.libman.interfaces.IMediaReservation;
-import at.fhv.itb.sem5.team6.libman.interfaces.IMediaReservationFactory;
-import at.fhv.itb.sem5.team6.libman.server.model.Customer;
-import at.fhv.itb.sem5.team6.libman.server.model.Media;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.rmi.UnexpectedException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.Locale;
-
-import static javafx.application.Application.launch;
 
 public class ClientTest extends Application {
 

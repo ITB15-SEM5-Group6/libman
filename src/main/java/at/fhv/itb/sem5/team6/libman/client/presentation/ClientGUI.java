@@ -20,8 +20,9 @@ public class ClientGUI {
 
     public void showFirstLogin(Stage primaryStage) throws Exception {
         primaryStage.setTitle("LIBMAN Login");
+        //System.out.println( getClass().getResource(getClass().getSimpleName() + ".class") );
 
-        scene = new Scene(FXMLLoader.load(ClientGUI.class.getResource("Login.fxml")));
+        scene = new Scene(FXMLLoader.load(ClientGUI.class.getResource("/views/Login.fxml")));
         primaryStage.setScene(scene);
         //primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
         primaryStage.show();
@@ -40,7 +41,7 @@ public class ClientGUI {
                 //closePlanchester();
             });
 
-            primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("MainFrame.fxml"))));
+            primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../../../../../../../../resources/views/MainFrame.fxml"))));
             // primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
             primaryStage.show();
 
