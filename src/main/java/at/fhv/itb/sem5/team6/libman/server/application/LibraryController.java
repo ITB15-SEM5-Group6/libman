@@ -8,6 +8,7 @@ import at.fhv.itb.sem5.team6.libman.server.persistence.MediaRepository;
 import at.fhv.itb.sem5.team6.libman.server.persistence.PhysicalMediaRepository;
 import at.fhv.itb.sem5.team6.libman.server.persistence.ReservationRepository;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutablePhysicalMedia;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -61,5 +62,9 @@ public class LibraryController implements Convertible {
         }
 
         return castUp(result);
+    }
+
+    public List<ImmutablePhysicalMedia> findAllPhysicalMedia() {
+        return castUp(physicalMediaRepository.findAll());
     }
 }

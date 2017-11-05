@@ -4,6 +4,7 @@ import at.fhv.itb.sem5.team6.libman.server.application.LibraryController;
 import at.fhv.itb.sem5.team6.libman.server.model.Availability;
 import at.fhv.itb.sem5.team6.libman.server.model.MediaType;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutablePhysicalMedia;
 import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibrary;
 
 import java.rmi.RemoteException;
@@ -55,6 +56,11 @@ public class LibraryImpl extends UnicastRemoteObject implements ILibrary {
     @Override
     public List<ImmutableMedia> findAllMedia(String text, MediaType type, Availability availability) throws RemoteException {
         return libraryController.findAllMedia(text, type, availability);
+    }
+
+    @Override
+    public List<ImmutablePhysicalMedia> findAllPhysicalMedia() {
+        return libraryController.findAllPhysicalMedia();
     }
 
 // Reservation

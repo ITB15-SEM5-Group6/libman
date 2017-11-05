@@ -3,6 +3,7 @@ package at.fhv.itb.sem5.team6.libman.shared.interfaces;
 import at.fhv.itb.sem5.team6.libman.server.model.Availability;
 import at.fhv.itb.sem5.team6.libman.server.model.MediaType;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
+import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutablePhysicalMedia;
 
 import javax.validation.constraints.NotNull;
 import java.rmi.Remote;
@@ -30,6 +31,8 @@ public interface ILibrary extends Remote {
 
     // by text (like and ignorecase) and media and availability
     List<ImmutableMedia> findAllMedia(String text, MediaType type, Availability availability) throws RemoteException;
+
+    List<ImmutablePhysicalMedia> findAllPhysicalMedia() throws RemoteException;
 
 // Reservation
 
