@@ -55,7 +55,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label text="adress:" GridPane.rowIndex="2">
+                        <Label text="address:" GridPane.rowIndex="2">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -80,13 +80,13 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="textFieldFirstname" GridPane.columnIndex="1" />
+                        <TextField fx:id="textFieldLastname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textFieldaddress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="textFieldPhone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="textFieldEmail" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="textFieldBic" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="textFieldIban" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Button fx:id="saveCustomerButton" mnemonicParsing="false" onAction="#saveCustomer" text="Save Customer" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      </children>
                      <opaqueInsets>

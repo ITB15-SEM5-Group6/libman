@@ -46,7 +46,7 @@
                     </rowConstraints>
                      <children>
                         <TextField />
-                        <Button mnemonicParsing="false" text="Search" GridPane.columnIndex="1" />
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <TableView fx:id="tableView" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
