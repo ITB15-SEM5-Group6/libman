@@ -5,12 +5,14 @@ import at.fhv.itb.sem5.team6.libman.server.model.Media;
 import at.fhv.itb.sem5.team6.libman.server.model.MediaType;
 import at.fhv.itb.sem5.team6.libman.server.persistence.CustomerRepository;
 import at.fhv.itb.sem5.team6.libman.server.persistence.MediaRepository;
+import at.fhv.itb.sem5.team6.libman.server.persistence.PhysicalMediaRepository;
 import at.fhv.itb.sem5.team6.libman.server.persistence.ReservationRepository;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
 import org.springframework.beans.factory.annotation.Autowired;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LibraryController implements Convertible {
 
@@ -20,6 +22,8 @@ public class LibraryController implements Convertible {
     private MediaRepository mediaRepository;
     @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
+    private PhysicalMediaRepository physicalMediaRepository;
 
     public List<ImmutableMedia> findAllMedia() {
         return castUp(mediaRepository.findAll());
@@ -41,10 +45,21 @@ public class LibraryController implements Convertible {
     }
 
     public List<ImmutableMedia> findAllMedia(Availability availability) {
-        throw new NotImplementedException();
+        return castUp(mediaRepository.findAll().stream().filter(p -> physicalMediaRepository.findDistinctByAvailabilityEquals(availability).stream().anyMatch(o -> o.getMedia().equals(p))).collect(Collectors.toList()));
     }
 
     public List<ImmutableMedia> findAllMedia(String text, MediaType type, Availability availability) {
-        throw new NotImplementedException();
+        List<ImmutableMedia> result = new ArrayList<>();
+        List<ImmutableMedia> result1 = findAllMedia(text);
+        List<ImmutableMedia> result2 = findAllMedia(type);
+        List<ImmutableMedia> result3 = findAllMedia(availability);
+
+        for(ImmutableMedia im : result1){
+            if(result2.contains(im) && result3.contains(im)){
+                result.add(im);
+            }
+        }
+
+        return castUp(result);
     }
 }
