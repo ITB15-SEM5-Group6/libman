@@ -15,9 +15,6 @@ public class ClientGUI {
     public static Scene scene;
     public static Stage primaryStage;
 
-    public void start(Stage primaryStage) throws Exception {
-        showFirstLogin(primaryStage);
-    }
 
     public void showFirstLogin(Stage primaryStage) throws Exception {
         primaryStage.setTitle("LIBMAN Login");
@@ -32,18 +29,20 @@ public class ClientGUI {
 
     public void loadGUI(Stage primaryStage) throws IOException{
 
-            primaryStage.setTitle("LIBMAN");
-            //primaryStage.setResizable(false);
-            primaryStage.setMaximized(true);
+        primaryStage.setTitle("LIBMAN");
+        //primaryStage.setResizable(false);
+        primaryStage.setMaximized(true);
 
 
-            primaryStage.setOnCloseRequest(t -> {
-                //closePlanchester();
-            });
-
-            primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../../../../../../../../resources/views/MainFrame.fxml"))));
-            // primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
-            primaryStage.show();
+        primaryStage.setOnCloseRequest(t -> {
+            //closeLIBMAN();
+        });
+        FXMLLoader loader = new FXMLLoader(ClientGUI.class.getResource("/views/MainFrame.fxml"));
+        Parent parent = loader.load();
+        scene = new Scene(parent);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        this.primaryStage = primaryStage;
 
     }
 }

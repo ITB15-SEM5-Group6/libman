@@ -13,7 +13,7 @@ public class Client extends Application {
         Locale.setDefault(Locale.UK);
 
         ClientGUI gui = new ClientGUI();
-        gui.start(primaryStage);
+        gui.loadGUI(primaryStage);
     }
 
     public static void main(String[] args) {
