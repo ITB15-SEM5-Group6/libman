@@ -65,14 +65,16 @@ public class ApplicationTests {
 
         //Customers and Medias already exist
 
+
         //physicalMedias
-        //insertTestDataPhysicalMedia(50);
+        insertTestDataPhysicalMedia(50);
 
         //reservations
-        //insertTestDataReservation(50);
-
+        insertTestDataReservation(50);
+        
         //lendings
-        //insertTestDataLending(50);
+        insertTestDataLending(50);
+
     }
 
     private void insertTestDataPhysicalMedia(int numberOfEntries) {
