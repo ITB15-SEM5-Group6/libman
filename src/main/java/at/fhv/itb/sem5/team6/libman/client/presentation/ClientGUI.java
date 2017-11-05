@@ -1,7 +1,5 @@
 package at.fhv.itb.sem5.team6.libman.client.presentation;
 
-import at.fhv.itb.sem5.team6.libman.client.ClientTest;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,49 +12,38 @@ import java.io.IOException;
  */
 public class ClientGUI {
 
-    public  Scene scene;
-    public  Stage primaryStage;
+    public static Scene scene;
+    public static Stage primaryStage;
 
     public void start(Stage primaryStage) throws Exception {
-        loadGUI(primaryStage);
+        showFirstLogin(primaryStage);
     }
 
-    public void loadGUI(Stage primaryStage) {
+    public void showFirstLogin(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("LIBMAN Login");
 
-        try {
-            primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(ClientGUI.class.getResource("/views/Login.fxml"));
+        Parent parent = loader.load();
+        scene = new Scene(parent);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        this.primaryStage = primaryStage;
+    }
+
+    public void loadGUI(Stage primaryStage) throws IOException{
+
             primaryStage.setTitle("LIBMAN");
             //primaryStage.setResizable(false);
             primaryStage.setMaximized(true);
 
-            primaryStage.setOnCloseRequest(t -> {
-                closeLibman();
-            });
-            FXMLLoader fxmlLoader = new FXMLLoader(ClientGUI.class.getClassLoader().getResource("views\\MainFrame.fxml"));
-            Parent root = fxmlLoader.load();
-            scene = new Scene(root);
 
-            primaryStage.setScene(scene);
+            primaryStage.setOnCloseRequest(t -> {
+                //closePlanchester();
+            });
+
+            primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../../../../../../../../resources/views/MainFrame.fxml"))));
             // primaryStage.getIcons().add(new Image("file:src/Presentation/Images/logoplanchester.png"));
             primaryStage.show();
-            this.primaryStage = primaryStage;
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-    }
 
-    private static void closeLibman() {
-        Platform.exit();
-        System.exit(0);
-    }
-
-    public void showLogin(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("views\\Login.fxml"));
-        Parent root = fxmlLoader.load();
-        primaryStage.setTitle("LIBMAN Login");
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        this.primaryStage = primaryStage;
     }
 }
