@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.itb.sem5.team6.libman.client.presentation.MainFrameController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.itb.sem5.team6.libman.client.presentation.MainFrameController">
    <children>
       <MenuBar>
         <menus>
@@ -53,7 +53,7 @@
                     </rowConstraints>
                      <children>
                         <Button fx:id="searchButton" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#openSearch" text="Search" GridPane.rowIndex="1" />
-                        <Button fx:id="userButton" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" text="User" GridPane.rowIndex="2" />
+                        <Button fx:id="customerButton" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#openAddCustomer" text="Add Customer" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children></AnchorPane>

@@ -20,26 +20,28 @@ public class MainFrameController {
     @FXML
     private Button searchButton;
     @FXML
-    private Button userButton;
+    private Button customerButton;
     @FXML
     private AnchorPane splitPaneRight;
 
 
     @FXML
     void openSearch(ActionEvent event) throws IOException {
+        splitPaneRight.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(ClientGUI.class.getResource("/views/Search.fxml"));
         Parent parent = loader.load();
         splitPaneRight.getChildren().add(parent);
-        try {
-            Node n = (Node)loader.load();
-            AnchorPane.setTopAnchor(n, 0.0);
-            AnchorPane.setRightAnchor(n, 0.0);
-            AnchorPane.setLeftAnchor(n, 0.0);
-            AnchorPane.setBottomAnchor(n, 0.0);
-            splitPaneRight.getChildren().setAll(n);
-        } catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+
+    }
+
+
+    @FXML
+    void openAddCustomer(ActionEvent event) throws IOException {
+        splitPaneRight.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(ClientGUI.class.getResource("/views/Customer.fxml"));
+        Parent parent = loader.load();
+        splitPaneRight.getChildren().add(parent);
+
     }
 
 }

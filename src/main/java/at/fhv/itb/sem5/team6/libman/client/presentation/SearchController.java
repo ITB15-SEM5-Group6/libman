@@ -1,10 +1,7 @@
 package at.fhv.itb.sem5.team6.libman.client.presentation;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -30,18 +27,29 @@ public class SearchController {
     private TableColumn<?, ?> columnTitle;
 
     @FXML
-    private TableColumn<?, ?> columnMeditype;
+    private TableColumn<?, ?> columnMediatype;
 
     @FXML
     private TableColumn<?, ?> columnAvailable;
+
+    @FXML
+    private ComboBox<?> comboMediatype;
+
+    @FXML
+    private ComboBox<?> comboGenre;
+
+    @FXML
+    private ComboBox<?> comboAvailabilty;
 
     @FXML
     public void initialize() {
         scrollPane.setFitToHeight(true);
         scrollPane.setFitToHeight(true);
         columnTitle.prefWidthProperty().bind(tableView.widthProperty().divide(2)); // w * 1/4
-        columnMeditype.prefWidthProperty().bind(tableView.widthProperty().divide(4)); // w * 1/2
+        columnMediatype.prefWidthProperty().bind(tableView.widthProperty().divide(4)); // w * 1/2
         columnAvailable.prefWidthProperty().bind(tableView.widthProperty().divide(4)); // w * 1/4
+
+
     }
 
 }
