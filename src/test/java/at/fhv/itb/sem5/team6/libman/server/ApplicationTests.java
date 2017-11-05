@@ -1,17 +1,20 @@
 package at.fhv.itb.sem5.team6.libman.server;
 
-import at.fhv.itb.sem5.team6.libman.server.model.Customer;
-import at.fhv.itb.sem5.team6.libman.server.model.Media;
-import at.fhv.itb.sem5.team6.libman.server.model.Reservation;
-import at.fhv.itb.sem5.team6.libman.server.persistence.CustomerRepository;
-import at.fhv.itb.sem5.team6.libman.server.persistence.MediaRepository;
-import at.fhv.itb.sem5.team6.libman.server.persistence.ReservationRepository;
+import at.fhv.itb.sem5.team6.libman.server.model.*;
+import at.fhv.itb.sem5.team6.libman.server.persistence.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /*
@@ -22,6 +25,9 @@ import java.util.stream.Collectors;
 @SpringBootTest
 public class ApplicationTests {
 
+    private Random r = new Random();
+
+
     @Autowired
     private ReservationRepository reservations;
 
@@ -31,6 +37,13 @@ public class ApplicationTests {
     @Autowired
     private MediaRepository medias;
 
+    @Autowired
+    private PhysicalMediaRepository physicalMedias;
+
+    @Autowired
+    private LendingRepository lendings;
+
+
 	@Test
 	public void contextLoads() {
         Customer customer = customers.findByLastName("Dengg").get(0);
@@ -38,5 +51,95 @@ public class ApplicationTests {
 
         Reservation reservation = new Reservation();
         reservations.save(reservation);
+
+    }
+
+    /**
+     * General Process:
+     * Functions, which makes it easier to insert testdata
+     * InsertionTest: Insert data (Customers, Media, PhysicalMedias, Reservations, Lendings)
+     * Should be in a comment
+     */
+    @Test
+    public void insertionTest() {
+
+        //Customers and Medias already exist
+
+        //physicalMedias
+        //insertTestDataPhysicalMedia(50);
+
+        //reservations
+        //insertTestDataReservation(50);
+
+        //lendings
+        //insertTestDataLending(50);
+    }
+
+    private void insertTestDataPhysicalMedia(int numberOfEntries) {
+
+        List<PhysicalMedia> list = new ArrayList<>();
+        //relation to media
+        List<Media> m = medias.findAll();
+
+        for(int i = 0; i < numberOfEntries; i++) {
+            PhysicalMedia item = new PhysicalMedia();
+
+            int randomMedia = r.nextInt(m.size());
+
+            Availability availability = randomMedia% 2 == 0 ? Availability.AVAILABLE : Availability.NOT_AVAILABLE;
+            Media media = m.get(randomMedia);
+
+            item.setAvailability(availability);
+            item.setMedia(media);
+
+            list.add(item);
+        }
+        physicalMedias.save(list);
+    }
+
+
+    private void insertTestDataReservation(int numberOfEntries){
+
+        List<Reservation> list = new ArrayList<>();
+
+        //relation to customer and media
+        List<Customer> c = customers.findAll();
+        List<Media> m = medias.findAll();
+
+        for(int i = 0; i < numberOfEntries; i++) {
+            Reservation item = new Reservation();
+
+            int randomCustomer = r.nextInt(c.size());
+            int randomMedia = r.nextInt(m.size());
+
+            item.setCustomer(c.get(randomCustomer));
+            item.setMedia(m.get(randomMedia));
+
+            list.add(item);
+        }
+        reservations.save(list);
+    }
+
+    private void insertTestDataLending(int numberOfEntries){
+
+        List<Lending> list = new ArrayList<>();
+
+        //relation to customer and physicalMedia
+        List<Customer> c = customers.findAll();
+        List<PhysicalMedia> p = physicalMedias.findAll();
+
+        for(int i = 0; i < numberOfEntries; i++) {
+            Lending item = new Lending();
+
+            int randomCustomer = r.nextInt(c.size());
+            int randomPhysicalMedia = r.nextInt(p.size());
+
+            item.setCustomer(c.get(randomCustomer));
+            item.setPhysicalMedia(p.get(randomPhysicalMedia));
+
+            list.add(item);
+        }
+
+        lendings.save(list);
     }
 }
