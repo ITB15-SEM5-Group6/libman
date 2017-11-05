@@ -34,7 +34,7 @@
       </MenuBar>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="399.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
         <items>
-          <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefWidth="200.0">
+          <AnchorPane fx:id="splitPaneLeft" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefWidth="200.0">
                <children>
                   <GridPane layoutX="-12.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
@@ -52,12 +52,12 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button minHeight="50.0" minWidth="150.0" mnemonicParsing="false" text="Search" GridPane.rowIndex="1" />
-                        <Button minHeight="50.0" minWidth="150.0" mnemonicParsing="false" text="User" GridPane.rowIndex="2" />
+                        <Button fx:id="searchButton" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#openSearch" text="Search" GridPane.rowIndex="1" />
+                        <Button fx:id="userButton" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" text="User" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="386.0" prefWidth="417.0" />
+          <AnchorPane fx:id="splitPaneRight" minHeight="0.0" minWidth="0.0" prefHeight="386.0" prefWidth="417.0" />
         </items>
       </SplitPane>
    </children>
