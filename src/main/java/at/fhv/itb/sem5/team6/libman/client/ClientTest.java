@@ -1,5 +1,6 @@
 package at.fhv.itb.sem5.team6.libman.client;
 
+import at.fhv.itb.sem5.team6.libman.server.model.Availability;
 import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibrary;
 import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibraryFactory;
 
@@ -19,12 +20,12 @@ public class ClientTest {
         ILibraryFactory stubFactory = (ILibraryFactory) registry.lookup("LibraryFactory");
         ILibrary stub = stubFactory.create();
 
-        //stub.findAllMedia().forEach(System.out::println);
+        stub.findAllMedia().forEach(System.out::println);
 
 
         stub.findAllPhysicalMedia().forEach(System.out::println);
 
-        //stub.findAllMedia(Availability.AVAILABLE).forEach(System.out::println);
+        stub.findAllMedia(Availability.AVAILABLE).forEach(System.out::println);
         //stub.findAllMedia(MediaType.BOOK).forEach(System.out::println);
         //stub.findAllMedia("feu").forEach(System.out::println);
     }

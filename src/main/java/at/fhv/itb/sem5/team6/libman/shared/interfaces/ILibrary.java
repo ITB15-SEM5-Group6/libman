@@ -47,4 +47,9 @@ public interface ILibrary extends Remote {
     //void returnPhysicalMedia(@NotNull Lending lending) throws RemoteException;
 
     //void extendLending(@NotNull Lending lending) throws RemoteException;
+
+
+// Physical Media
+
+    List<ImmutablePhysicalMedia> getPhysicalMedia(ImmutableMedia media);
 }

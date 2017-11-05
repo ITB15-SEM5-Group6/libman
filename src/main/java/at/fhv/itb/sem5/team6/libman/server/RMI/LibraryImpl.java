@@ -63,6 +63,11 @@ public class LibraryImpl extends UnicastRemoteObject implements ILibrary {
         return libraryController.findAllPhysicalMedia();
     }
 
+    @Override
+    public List<ImmutablePhysicalMedia> getPhysicalMedia(ImmutableMedia media) {
+        return libraryController.getPhysicalMedia(media);
+    }
+
 // Reservation
 
 // Lending

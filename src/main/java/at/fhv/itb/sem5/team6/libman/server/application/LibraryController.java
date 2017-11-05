@@ -67,4 +67,8 @@ public class LibraryController implements Convertible {
     public List<ImmutablePhysicalMedia> findAllPhysicalMedia() {
         return castUp(physicalMediaRepository.findAll());
     }
+
+    public List<ImmutablePhysicalMedia> getPhysicalMedia(ImmutableMedia media) {
+        return castUp(physicalMediaRepository.findDistinctByMediaEquals(castDown(media)));
+    }
 }
