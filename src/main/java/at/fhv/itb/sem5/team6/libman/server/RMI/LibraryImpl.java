@@ -15,7 +15,7 @@ import java.util.List;
 
 public class LibraryImpl extends UnicastRemoteObject implements ILibrary {
 
-    private final LibraryController libraryController;
+    private LibraryController libraryController;
 
     protected LibraryImpl(LibraryController libraryController) throws RemoteException {
         this.libraryController = libraryController;
