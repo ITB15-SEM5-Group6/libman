@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.Date;
 
 //Lombok annotations to reduce boilerplate (lombok plugin has to be installed in IDE)
 @Data // applies lombok-annotations
@@ -27,6 +28,10 @@ public class Lending implements MutableLending, Identifiable<String>, Serializab
     private PhysicalMedia physicalMedia;
     @DBRef //MongoDb uses this object as a reference
     private Customer customer;
+    private Date lendDate;
+    private Integer extentions;
+    private String info;
+    private LendingState state;
 
     @Override
     public void setPhysicalMedia(ImmutablePhysicalMedia physicalMedia) {

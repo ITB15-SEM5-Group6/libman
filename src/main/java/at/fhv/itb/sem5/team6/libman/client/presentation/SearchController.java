@@ -15,9 +15,6 @@ public class SearchController {
     private AnchorPane anchorPane;
 
     @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
     private GridPane gridPane;
 
     @FXML
