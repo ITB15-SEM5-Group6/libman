@@ -32,7 +32,6 @@ public class ClientController {
         return library.findAllMedia();
     }
 
-
     public List<ImmutableMedia> findAllMedia() throws RemoteException {
         return library.findAllMedia();
     }
