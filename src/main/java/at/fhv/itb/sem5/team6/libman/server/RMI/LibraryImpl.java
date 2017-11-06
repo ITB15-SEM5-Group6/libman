@@ -6,7 +6,6 @@ import at.fhv.itb.sem5.team6.libman.server.model.MediaType;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutablePhysicalMedia;
 import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibrary;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
@@ -16,7 +15,6 @@ import java.util.List;
 
 public class LibraryImpl extends UnicastRemoteObject implements ILibrary {
 
-    @Autowired
     private LibraryController libraryController;
 
     protected LibraryImpl(LibraryController libraryController) throws RemoteException {
