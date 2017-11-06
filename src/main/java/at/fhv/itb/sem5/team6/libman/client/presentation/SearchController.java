@@ -15,9 +15,6 @@ public class SearchController {
     private AnchorPane anchorPane;
 
     @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
     private GridPane gridPane;
 
     @FXML
@@ -45,8 +42,6 @@ public class SearchController {
 
     @FXML
     public void initialize() {
-        scrollPane.setFitToHeight(true);
-        scrollPane.setFitToHeight(true);
         columnTitle.prefWidthProperty().bind(tableView.widthProperty().divide(2)); // w * 1/4
         columnMediatype.prefWidthProperty().bind(tableView.widthProperty().divide(4)); // w * 1/2
         columnAvailable.prefWidthProperty().bind(tableView.widthProperty().divide(4)); // w * 1/4

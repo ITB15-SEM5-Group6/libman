@@ -51,5 +51,5 @@ public interface ILibrary extends Remote {
 
 // Physical Media
 
-    List<ImmutablePhysicalMedia> getPhysicalMedia(ImmutableMedia media);
+    List<ImmutablePhysicalMedia> getPhysicalMedia(ImmutableMedia media) throws RemoteException;
 }

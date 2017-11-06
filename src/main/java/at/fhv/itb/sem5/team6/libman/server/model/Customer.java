@@ -21,4 +21,9 @@ public class Customer implements MutableCustomer, Identifiable<String>, Serializ
     private String id;
     private String firstName;
     private String lastName;
+    private String email;
+    private String phoneNumber;
+    private String address;
+    private String iban;
+    private String bic;
 }

@@ -21,6 +21,7 @@ import java.io.Serializable;
 public class PhysicalMedia implements MutablePhysicalMedia, Identifiable<String>, Serializable {
     @Id
     private String id;
+    private String index;
     private Availability availability;
     @DBRef //MongoDb uses this object as a reference
     private Media media;
