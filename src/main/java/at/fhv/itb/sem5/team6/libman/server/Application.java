@@ -1,7 +1,5 @@
 package at.fhv.itb.sem5.team6.libman.server;
 
-import at.fhv.itb.sem5.team6.libman.server.RMI.LibraryFactoryImpl;
-import at.fhv.itb.sem5.team6.libman.server.application.LibraryController;
 import at.fhv.itb.sem5.team6.libman.shared.interfaces.ILibraryFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,16 +11,6 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-	}
-
-	@Bean
-	LibraryController getLibraryController() {
-		return new LibraryController();
-	}
-
-	@Bean
-	ILibraryFactory getLibraryServiceFactory(LibraryController controller) {
-		return new LibraryFactoryImpl(controller);
 	}
 
 	@Bean

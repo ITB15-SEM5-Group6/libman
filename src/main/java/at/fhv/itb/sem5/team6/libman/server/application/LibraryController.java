@@ -10,11 +10,13 @@ import at.fhv.itb.sem5.team6.libman.server.persistence.ReservationRepository;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutableMedia;
 import at.fhv.itb.sem5.team6.libman.shared.DTOs.immutable.ImmutablePhysicalMedia;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class LibraryController implements Convertible {
 
     @Autowired
