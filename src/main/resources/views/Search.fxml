@@ -16,9 +16,7 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="623.0" prefWidth="953.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhv.itb.sem5.team6.libman.client.presentation.SearchController">
    <children>
-      <ScrollPane fx:id="scrollPane" layoutX="100.0" layoutY="24.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <content>
-            <GridPane fx:id="gridPane" prefHeight="620.0" prefWidth="950.0">
+            <GridPane fx:id="gridPane" prefHeight="620.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="ALWAYS" percentWidth="5.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="90.0" />
@@ -82,7 +80,5 @@
                   <Insets />
                </opaqueInsets>
             </GridPane>
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>

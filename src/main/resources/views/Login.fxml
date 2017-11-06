@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="at.fhv.itb.sem5.team6.libman.client.presentation.Login"
+            fx:controller="at.fhv.itb.sem5.team6.libman.client.presentation.LoginController"
             prefHeight="400.0" prefWidth="600.0">
 
 <children>
