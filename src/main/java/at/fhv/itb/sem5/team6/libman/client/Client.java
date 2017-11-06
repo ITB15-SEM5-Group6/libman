@@ -12,6 +12,10 @@ public class Client extends Application {
     public void start(Stage primaryStage) throws Exception {
         Locale.setDefault(Locale.UK);
 
+        // connect rmi
+
+
+        // start gui
         ClientGUI gui = new ClientGUI();
         gui.loadGUI(primaryStage);
     }
