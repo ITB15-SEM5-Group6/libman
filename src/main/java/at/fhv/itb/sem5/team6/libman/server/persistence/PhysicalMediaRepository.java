@@ -6,10 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-/**
- * Created by timor on 05.11.2017.
- */
-public interface PhysicalMediaRepository extends MongoRepository <PhysicalMedia, String> {
+public interface PhysicalMediaRepository extends MongoRepository<PhysicalMedia, String> {
 
     List<PhysicalMedia> findDistinctByAvailabilityEquals(Availability availability);
 
