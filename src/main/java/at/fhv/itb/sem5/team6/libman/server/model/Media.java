@@ -5,10 +5,14 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import sun.security.x509.AVA;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 //Lombok annotations to reduce boilerplate (lombok plugin has to be installed in IDE)
 @Data // applies lombok-annotations
@@ -28,6 +32,17 @@ public class Media implements MutableMedia, Identifiable<String>, Serializable {
     private Date releaseDate;
     private String tags;
     private String Genre;
+    //@DBRef
+    private List<PhysicalMedia> physicalMedias;
+    @DBRef
+    private PhysicalMedia p;
 
-
+    @Override
+    public Availability getAvailability() {
+        if(physicalMedias.stream().anyMatch(p -> p.getAvailability() == Availability.AVAILABLE)){
+            return Availability.AVAILABLE;
+        } else {
+            return Availability.NOT_AVAILABLE;
+        }
+    }
 }

@@ -46,11 +46,10 @@ public class ApplicationTests {
 
 	@Test
 	public void contextLoads() {
-        Customer customer = customers.findByLastName("Dengg").get(0);
-        Media media = medias.findAll().stream().filter(media1 -> media1.getTitle().contains("Feuerkelch")).collect(Collectors.toList()).get(0);
+        List<PhysicalMedia> physicalMedia = physicalMedias.findAll();
+        List<Media> media = medias.findAll();
 
-        Reservation reservation = new Reservation();
-        reservations.save(reservation);
+        media.toString();
 
     }
 
