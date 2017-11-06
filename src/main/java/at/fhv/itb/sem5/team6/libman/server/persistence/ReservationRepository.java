@@ -8,5 +8,5 @@ import java.util.List;
 public interface ReservationRepository extends MongoRepository<Reservation, String> {
     List<Reservation> findByCustomer_LastNameLike(String name);
 
-    List<Reservation> findByInfo_TitleLike(String title);
+    List<Reservation> findByMedia_TitleLike(String title);
 }
