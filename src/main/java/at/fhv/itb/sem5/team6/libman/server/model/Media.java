@@ -32,17 +32,6 @@ public class Media implements MutableMedia, Identifiable<String>, Serializable {
     private Date releaseDate;
     private String tags;
     private String Genre;
-    //@DBRef
-    private List<PhysicalMedia> physicalMedias;
-    @DBRef
-    private PhysicalMedia p;
 
-    @Override
-    public Availability getAvailability() {
-        if(physicalMedias.stream().anyMatch(p -> p.getAvailability() == Availability.AVAILABLE)){
-            return Availability.AVAILABLE;
-        } else {
-            return Availability.NOT_AVAILABLE;
-        }
-    }
+
 }

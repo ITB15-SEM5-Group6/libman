@@ -46,7 +46,7 @@
                         <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
-                  <TableView fx:id="tableView" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="tableView"  onMouseClicked="#clickItem" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="columnTitle" maxWidth="1.7976931348623157E308" prefWidth="75.0" text="Titel" />
                       <TableColumn fx:id="columnMediatype" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="Mediatype" />
