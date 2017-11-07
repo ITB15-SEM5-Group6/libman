@@ -42,9 +42,10 @@ public class SearchController {
     private ComboBox<?> comboGenre;
     @FXML
     private ComboBox<?> comboAvailabilty;
-
     @FXML
     private TextField searchTextField;
+
+    private static ImmutableMedia selectedMedia;
 
     @FXML
     public void initialize() {
@@ -66,7 +67,6 @@ public class SearchController {
     @FXML
     void search(ActionEvent event) throws RemoteException {
         tableView.getItems().clear();
-
         String searchText = searchTextField.getText();
         searchText = searchText.toUpperCase();
         ObservableList<MediaEntry> mediaEntries = FXCollections.observableArrayList();
@@ -85,6 +85,7 @@ public class SearchController {
 
     @FXML
     void clickItem(MouseEvent event) {
+        selectedMedia = tableView.getSelectionModel().getSelectedItem().getImmutableMedia();
         if(event.getClickCount() == 2) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/views/DetailMediaView.fxml"));
@@ -99,6 +100,10 @@ public class SearchController {
             stage.setScene(scene);
             stage.show();
         }
+    }
+
+    public static ImmutableMedia getCurrentSelectedMedia() {
+        return selectedMedia;
     }
 
 
